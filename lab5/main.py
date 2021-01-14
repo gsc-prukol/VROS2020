@@ -16,7 +16,6 @@ data_file = "data.txt"
 df = sc.textFile(data_file, minPartitions=100).map(lambda x: eval(x))
 td = TaxiDataProcessor(df)
 
-'''
 top_drivers = td.top_drivers(100)
 with open("results/top_drivers.json", "w") as f:
     json.dump(top_drivers, f, indent=4, sort_keys=True)
@@ -63,7 +62,7 @@ with open("results/top_praised_drivers.json", "w") as f:
 top_complained_drivers = td.most_complained_driver_quality()
 with open("results/top_complained_drivers.json", "w") as f:
    json.dump(top_complained_drivers, f, indent=4, sort_keys=True)
-'''
+
 most_len_comment = td.driver_comment()
 with open("results/most_len_comment.json", "w") as f:
     json.dump(most_len_comment, f, indent=4, sort_keys=True)
